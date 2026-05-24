@@ -1,4 +1,5 @@
 import { X, Check, Info } from "lucide-react";
+import { LovableLogo } from "./LovableLogo";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import type { BillingData } from "./useBillingData";
 
@@ -48,21 +49,14 @@ export function ManagePlanDialog({ open, onClose, data }: Props) {
           {/* Current plan card */}
           <div className="rounded-xl border border-[var(--border-primary)] p-4">
             <div className="flex items-start gap-3">
-              <div className="size-10 rounded-xl bg-gradient-to-br from-orange-400 via-rose-500 to-violet-600 flex items-center justify-center shrink-0">
-                <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6">
-                  <path
-                    d="M10 17.5C10 17.5 2 12 2 7C2 4.8 3.8 3 6 3C7.6 3 9 3.9 10 5.2C11 3.9 12.4 3 14 3C16.2 3 18 4.8 18 7C18 12 10 17.5 10 17.5Z"
-                    fill="white"
-                  />
-                </svg>
-              </div>
+              <LovableLogo className="shrink-0 size-10" />
               <div className="flex-1 min-w-0">
                 <span className="text-sm font-semibold text-[var(--fg-primary)]">
                   You&apos;re on {planName} plan
                 </span>
                 <p className="text-xs text-[var(--fg-tertiary)] mt-0.5">Renews {renewsAt}</p>
               </div>
-              <button className="shrink-0 h-8 px-3 rounded-lg text-xs font-medium text-[var(--fg-primary)] bg-[oklch(0_0_0/0.08)] hover:bg-[oklch(0_0_0/0.12)] transition-colors border border-[var(--border-primary)]">
+              <button className="shrink-0 h-8 px-3 rounded-lg text-xs font-medium text-[var(--fg-primary)] bg-[var(--bg-tertiary)] hover:bg-[var(--bg-quaternary)] transition-colors border border-[var(--border-primary)]">
                 Downgrade to free
               </button>
             </div>
@@ -85,7 +79,7 @@ export function ManagePlanDialog({ open, onClose, data }: Props) {
                   Automatically applied to subscription payments
                 </p>
               </div>
-              <button className="shrink-0 h-8 px-3 rounded-lg text-xs font-medium text-[var(--fg-primary)] bg-[oklch(0_0_0/0.08)] hover:bg-[oklch(0_0_0/0.12)] transition-colors border border-[var(--border-primary)]">
+              <button className="shrink-0 h-8 px-3 rounded-lg text-xs font-medium text-[var(--fg-primary)] bg-[var(--bg-tertiary)] hover:bg-[var(--bg-quaternary)] transition-colors border border-[var(--border-primary)]">
                 Redeem
               </button>
             </div>

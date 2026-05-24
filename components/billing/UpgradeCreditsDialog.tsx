@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { X, Check } from "lucide-react";
+import { LovableLogo } from "./LovableLogo";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import {
   Select,
@@ -39,11 +40,7 @@ export function UpgradeCreditsDialog({ open, onClose }: Props) {
       <DialogContent className="max-w-sm p-0 gap-0 overflow-hidden rounded-2xl bg-background border-[var(--border-primary)]">
         {/* Header */}
         <div className="flex items-start gap-3 p-5 pb-4">
-          <div className="size-10 rounded-xl bg-gradient-to-br from-orange-400 via-rose-500 to-violet-600 flex items-center justify-center shrink-0">
-            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6">
-              <path d="M10 17.5C10 17.5 2 12 2 7C2 4.8 3.8 3 6 3C7.6 3 9 3.9 10 5.2C11 3.9 12.4 3 14 3C16.2 3 18 4.8 18 7C18 12 10 17.5 10 17.5Z" fill="white" />
-            </svg>
-          </div>
+          <LovableLogo className="shrink-0 size-10" />
           <div className="flex-1 min-w-0">
             <h2 className="text-base font-bold text-[var(--fg-primary)] leading-tight">Add more credits</h2>
             <p className="text-sm text-[var(--fg-tertiary)] mt-0.5">Here's what happens if you upgrade:</p>
@@ -96,13 +93,13 @@ export function UpgradeCreditsDialog({ open, onClose }: Props) {
         <div className="flex items-center gap-2 px-5 pb-5">
           <button
             onClick={onClose}
-            className="flex-1 h-10 rounded-xl text-sm font-medium text-[var(--fg-primary)] border border-[var(--border-primary)] bg-[oklch(0_0_0/0.06)] hover:bg-[oklch(0_0_0/0.09)] transition-colors"
+            className="flex-1 h-10 rounded-xl text-sm font-medium text-[var(--fg-primary)] border border-[var(--border-primary)] bg-[var(--bg-tertiary)] hover:bg-[var(--bg-quaternary)] transition-colors"
           >
             Cancel
           </button>
           <button
             onClick={onClose}
-            className="flex-1 h-10 rounded-xl text-sm font-medium text-[var(--fg-primary)] border border-[var(--border-primary)] bg-background hover:bg-[oklch(0_0_0/0.04)] transition-colors"
+            className="flex-1 h-10 rounded-xl text-sm font-medium text-[var(--fg-primary)] border border-[var(--border-primary)] bg-background hover:bg-[var(--hover-bg)] transition-colors"
           >
             Upgrade
           </button>

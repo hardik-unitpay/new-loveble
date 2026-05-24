@@ -34,7 +34,7 @@ export function SpecialOffersSection() {
       {offers.map((offer) => (
         <div
           key={offer.title}
-          className="flex flex-col gap-4 rounded-xl border border-[var(--border-primary)] bg-muted p-4"
+          className="flex flex-col gap-4 rounded-xl border border-[var(--muted-active)] bg-muted p-4"
         >
           <div className="flex flex-col gap-1.5">
             <h3 className="text-base font-semibold text-[var(--fg-primary)]">{offer.title}</h3>
@@ -42,7 +42,7 @@ export function SpecialOffersSection() {
           </div>
           <Link
             href={offer.href}
-            className="inline-flex items-center justify-center h-9 w-full rounded-lg text-sm font-normal text-[var(--fg-primary)] border border-[var(--border-primary)] bg-transparent hover:bg-[oklch(0_0_0/0.04)] transition-colors"
+            className="inline-flex items-center justify-center h-9 w-full rounded-lg text-sm font-normal text-[var(--fg-primary)] border border-[var(--muted-active)] bg-transparent hover:bg-[var(--hover-bg)] transition-colors"
           >
             {offer.actionLabel}
           </Link>

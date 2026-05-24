@@ -110,7 +110,7 @@ export function SettingsSidebar() {
   return (
     <div
       className="flex h-screen w-[240px] shrink-0 flex-col overflow-y-auto sticky top-0"
-      style={{ background: "var(--bg-depth)" }}
+      style={{ background: "var(--card)" }}
     >
       {/* Back link */}
       <div className="px-4 pt-4 pb-2">
@@ -141,10 +141,10 @@ export function SettingsSidebar() {
                     "flex items-center gap-2.5 rounded-lg px-2 py-1.5 text-sm transition-colors",
                     isActive
                       ? "font-medium"
-                      : "hover:bg-[oklch(0_0_0/0.04)]"
+                      : "hover:bg-[var(--hover-bg)]"
                   )}
                   style={{
-                    background: isActive ? "oklch(0_0_0/0.07)" : undefined,
+                    background: isActive ? "var(--active-bg)" : undefined,
                     color: isActive ? "var(--fg-primary)" : "var(--fg-secondary)",
                   }}
                 >

@@ -58,7 +58,7 @@ export default function BillingPage() {
   const { data, isLoading } = useBillingData();
 
   return (
-    <div className="flex h-screen overflow-hidden" style={{ background: "var(--bg-depth)" }}>
+    <div className="flex h-screen overflow-hidden" style={{ background: "var(--background)" }}>
       {/* Sidebar — sticky full height */}
       <SettingsSidebar />
 
@@ -67,7 +67,7 @@ export default function BillingPage() {
         {/* White rounded panel */}
         <div
           className="flex flex-1 flex-col rounded-xl border overflow-y-auto"
-          style={{ background: "var(--bg-primary)", borderColor: "var(--border-primary)" }}
+          style={{ background: "var(--background)", borderColor: "var(--border-primary)" }}
         >
           <div className="flex flex-col gap-6 p-6 xl:p-10">
                 {/* Page header */}
@@ -82,7 +82,7 @@ export default function BillingPage() {
                     href="https://docs.lovable.dev/user-guides/messaging-limits"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 h-8 px-2.5 rounded-lg text-sm text-[var(--fg-primary)] hover:bg-[oklch(0_0_0/0.06)] transition-colors shrink-0"
+                    className="inline-flex items-center gap-1 h-8 px-2.5 rounded-lg text-sm text-[var(--fg-primary)] hover:bg-[var(--hover-bg)] transition-colors shrink-0"
                   >
                     Open docs
                     <ExternalLink className="w-4 h-4" />

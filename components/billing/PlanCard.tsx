@@ -51,7 +51,10 @@ export function PlanCard({
   const displayPrice = annual && annualPrice ? String(annualPrice) : price;
 
   return (
-    <div className="flex flex-col gap-4 rounded-xl border border-[var(--border-primary)] bg-muted p-4 pb-6">
+    <div className={cn(
+      "flex flex-col gap-4 rounded-xl border border-[var(--muted-active)] p-4 pb-6",
+      buttonVariant === "primary" ? "bg-muted" : "bg-transparent"
+    )}>
       {/* Plan header */}
       <div className="flex flex-col gap-1.5">
         <h3 className="text-base font-semibold text-[var(--fg-primary)]">{name}</h3>
@@ -81,11 +84,11 @@ export function PlanCard({
           <Switch
             checked={annual}
             onCheckedChange={setAnnual}
-            className="data-[state=checked]:bg-[var(--accent-primary)]"
+            className="data-[checked]:bg-[var(--accent-primary)] data-[unchecked]:bg-[oklch(56.74%_0.009_106.68/0.2)]"
           />
           <span className="text-sm text-[var(--fg-secondary)]">Annual</span>
           {annual && (
-            <span className="rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-700">
+            <span className="rounded-full bg-green-900/30 px-2 py-0.5 text-xs font-medium text-green-400">
               Save 17%
             </span>
           )}
@@ -98,7 +101,7 @@ export function PlanCard({
       {/* Credits selector (only for plans with credits option) */}
       {defaultCredits && (
         <Select value={credits} onValueChange={(v) => v && setCredits(v)}>
-          <SelectTrigger className="w-full h-8 text-sm bg-background border-[var(--border-primary)]">
+          <SelectTrigger className="w-full h-8 text-sm !bg-transparent border border-[var(--fg-quaternary)]">
             <SelectValue>{PLAN_CREDITS_OPTIONS.find((o) => o.value === credits)?.label}</SelectValue>
           </SelectTrigger>
           <SelectContent>
@@ -160,8 +163,8 @@ function PlanButton({ variant, label, isCurrent, onClick }: PlanButtonProps) {
       onClick={onClick}
       className={cn(
         "w-full h-9 rounded-lg text-sm font-medium transition-colors border",
-        "border-[var(--border-primary)] bg-background text-[var(--fg-primary)]",
-        "hover:bg-[oklch(0_0_0/0.04)]"
+        "border-[var(--muted-active)] bg-transparent text-[var(--fg-primary)]",
+        "hover:bg-[var(--hover-bg)]"
       )}
     >
       {label}

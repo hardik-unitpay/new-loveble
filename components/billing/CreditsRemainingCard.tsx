@@ -11,7 +11,7 @@ interface Props {
 export function CreditsRemainingCard({ data, isLoading }: Props) {
   if (isLoading) {
     return (
-      <div className="flex flex-col gap-4 rounded-xl border border-[var(--border-primary)] bg-muted p-4 shadow-xs">
+      <div className="flex flex-col gap-4 rounded-xl border border-[var(--muted-active)] bg-muted p-4 shadow-xs">
         <div className="flex items-center justify-between">
           <Skeleton className="h-5 w-36" />
           <Skeleton className="h-7 w-12" />
@@ -39,7 +39,7 @@ export function CreditsRemainingCard({ data, isLoading }: Props) {
   const extraPct = (credits.extra.amount / credits.total) * 100;
 
   return (
-    <div className="flex flex-col gap-4 rounded-xl border border-[var(--border-primary)] bg-muted p-4 shadow-xs">
+    <div className="flex flex-col gap-4 rounded-xl border border-[var(--muted-active)] bg-muted p-4 shadow-xs">
       {/* Header */}
       <div className="flex items-center justify-between">
         <span className="text-sm font-semibold text-[var(--fg-primary)]">Credits remaining</span>
@@ -48,37 +48,39 @@ export function CreditsRemainingCard({ data, isLoading }: Props) {
         </span>
       </div>
 
-      {/* Segmented progress bar with dot cap */}
-      <div className="relative h-[8px] w-full flex items-center">
-        {/* Track */}
-        <div className="absolute inset-0 rounded-full" style={{ background: "oklch(0 0 0 / 0.08)" }} />
-        {/* Monthly segment (dark navy) */}
+      {/* Segmented progress bar — 3 segments, 11px height, matches original */}
+      <div className="relative w-full overflow-hidden rounded-lg" style={{ height: "11px", background: "var(--track-bg)" }}>
+        {/* Monthly segment */}
         <div
-          className="absolute h-[6px]"
+          className="absolute h-full transition-all"
           style={{
+            left: "0%",
             width: `${monthlyPct}%`,
-            background: "oklch(28% 0.16 264)",
-            borderRadius: "999px 0 0 999px",
-            top: "50%",
-            transform: "translateY(-50%)",
+            background: "oklch(61.32% 0.2106 264.41)",
+            borderRadius: "8px 0 0 8px",
           }}
         />
-        {/* Extra segment (bright blue) */}
+        {/* Extra segment */}
         <div
-          className="absolute h-[6px]"
+          className="absolute h-full transition-all"
           style={{
             left: `calc(${monthlyPct}% + 2px)`,
-            right: "4px",
-            background: "oklch(52.43% .2396 264.41)",
-            top: "50%",
-            transform: "translateY(-50%)",
+            width: `${extraPct}%`,
+            background: "oklch(70.62% 0.1391 264.41)",
           }}
         />
-        {/* Dot at the end */}
-        <div
-          className="absolute w-[8px] h-[8px] rounded-full"
-          style={{ right: 0, background: "oklch(52.43% .2396 264.41)" }}
-        />
+        {/* Daily / remaining tiny segment */}
+        {credits.daily.amount > 0 && (
+          <div
+            className="absolute h-full transition-all"
+            style={{
+              right: "0%",
+              width: `${(credits.daily.amount / credits.total) * 100}%`,
+              background: "oklch(78% 0.09 264.41)",
+              borderRadius: "0 8px 8px 0",
+            }}
+          />
+        )}
       </div>
 
       {/* Credit rows */}
@@ -126,9 +128,9 @@ function CreditRow({ label, subtitle, amount, tooltip }: CreditRowProps) {
             </Tooltip>
           )}
         </div>
-        <span className="text-xs text-[var(--fg-tertiary)] truncate">{subtitle}</span>
+        <span className="text-xs text-muted-foreground-subtle truncate">{subtitle}</span>
       </div>
-      <span className="text-sm tabular-nums text-[var(--fg-secondary)] shrink-0">{amount}</span>
+      <span className="text-sm tabular-nums text-muted-foreground shrink-0">{amount}</span>
     </div>
   );
 }
