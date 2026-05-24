@@ -11,7 +11,7 @@ interface Props {
 export function CreditsRemainingCard({ data, isLoading }: Props) {
   if (isLoading) {
     return (
-      <div className="flex flex-col gap-4 rounded-xl border border-[var(--border-primary)] bg-muted p-4 shadow-sm">
+      <div className="flex flex-col gap-4 rounded-xl border border-[var(--border-primary)] bg-muted p-4 shadow-xs">
         <div className="flex items-center justify-between">
           <Skeleton className="h-5 w-36" />
           <Skeleton className="h-7 w-12" />
@@ -39,7 +39,7 @@ export function CreditsRemainingCard({ data, isLoading }: Props) {
   const extraPct = (credits.extra.amount / credits.total) * 100;
 
   return (
-    <div className="flex flex-col gap-4 rounded-xl border border-[var(--border-primary)] bg-muted p-4 shadow-sm">
+    <div className="flex flex-col gap-4 rounded-xl border border-[var(--border-primary)] bg-muted p-4 shadow-xs">
       {/* Header */}
       <div className="flex items-center justify-between">
         <span className="text-sm font-semibold text-[var(--fg-primary)]">Credits remaining</span>

@@ -42,7 +42,7 @@ function LovableLogo() {
 export function CurrentPlanCard({ data, isLoading, onManage, onTopUp }: Props) {
   if (isLoading) {
     return (
-      <div className="flex flex-col gap-4 rounded-xl border border-[var(--border-primary)] bg-muted p-4 shadow-sm">
+      <div className="flex flex-col gap-4 rounded-xl border border-[var(--border-primary)] bg-muted p-4 shadow-xs">
         <div className="flex items-start gap-4">
           <Skeleton className="size-11 rounded-lg" />
           <div className="flex flex-col gap-1.5">
@@ -110,7 +110,7 @@ export function CurrentPlanCard({ data, isLoading, onManage, onTopUp }: Props) {
       <div className="flex items-center gap-2">
         <button
           onClick={onManage}
-          className="inline-flex items-center justify-center h-9 px-4 rounded-full text-sm font-medium border transition-colors shadow-sm"
+          className="inline-flex items-center justify-center h-7 px-[9px] py-1 rounded-lg text-sm font-normal border transition-colors"
           style={{ color: "var(--fg-primary)", borderColor: "var(--border-primary)", background: "transparent" }}
           onMouseOver={(e) => (e.currentTarget.style.background = "oklch(0 0 0 / 0.04)")}
           onMouseOut={(e) => (e.currentTarget.style.background = "transparent")}
@@ -119,7 +119,7 @@ export function CurrentPlanCard({ data, isLoading, onManage, onTopUp }: Props) {
         </button>
         <button
           onClick={onTopUp}
-          className="inline-flex items-center justify-center h-9 px-4 rounded-full text-sm font-medium border transition-colors shadow-sm"
+          className="inline-flex items-center justify-center h-7 px-[9px] py-1 rounded-lg text-sm font-normal border transition-colors"
           style={{ color: "var(--fg-primary)", borderColor: "var(--border-primary)", background: "transparent" }}
           onMouseOver={(e) => (e.currentTarget.style.background = "oklch(0 0 0 / 0.04)")}
           onMouseOut={(e) => (e.currentTarget.style.background = "transparent")}

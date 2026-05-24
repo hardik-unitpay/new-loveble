@@ -15,7 +15,7 @@ function SecurityBadge({ label, sublabel }: { label: string; sublabel?: string }
 
 export function SecuritySection() {
   return (
-    <div className="flex items-center justify-between gap-6 rounded-xl border border-[var(--border-primary)] bg-background p-5 shadow-sm">
+    <div className="flex items-center justify-between gap-6 rounded-xl border border-[var(--border-primary)] bg-muted p-4">
       <div className="flex flex-col gap-2">
         <h3 className="text-base font-semibold text-[var(--fg-primary)]">Security and compliance</h3>
         <p className="text-sm text-[var(--fg-tertiary)]">
@@ -31,7 +31,7 @@ export function SecuritySection() {
 
       <Link
         href="#"
-        className="shrink-0 inline-flex items-center justify-center h-9 px-4 rounded-lg text-sm font-medium text-[var(--fg-primary)] border border-[var(--border-primary)] bg-background hover:bg-[oklch(0_0_0/0.04)] transition-colors"
+        className="shrink-0 inline-flex items-center justify-center h-7 px-[9px] py-1 rounded-lg text-sm font-normal text-[var(--fg-primary)] border border-[var(--border-primary)] bg-transparent hover:bg-[oklch(0_0_0/0.04)] transition-colors"
       >
         Learn more
       </Link>
