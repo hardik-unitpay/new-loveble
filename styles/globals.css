@@ -1,8 +1,69 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Lovable.dev exact design tokens — light mode */
+  --background: oklch(98.51% 0 107);
+  --foreground: oklch(10% 0 0);
+  --card: oklch(98.51% 0 107);
+  --card-foreground: oklch(5% 0 0);
+  --popover: oklch(98.51% 0 107);
+  --popover-foreground: oklch(5% 0 0);
+  --primary: oklch(10% 0 0);
+  --primary-foreground: oklch(98.51% 0 107);
+  --secondary: oklch(95% 0.005 107);
+  --secondary-foreground: oklch(10% 0 0);
+  --muted: oklch(95% 0.005 107);
+  --muted-foreground: oklch(50% .001 107);
+  --accent: oklch(91% 0.06 264);
+  --accent-foreground: oklch(39% 0.21 264);
+  --destructive: oklch(59% 0.22 27);
+  --border: oklch(85.12% 0 107);
+  --input: oklch(85.12% 0 107);
+  --ring: oklch(52.43% .2396 264.41);
+  --radius: 0.5rem;
+
+  /* Extended lovable.dev tokens */
+  --bg-depth: oklch(95.49% 0 107);
+  --bg-base: oklch(96.99% 0 107);
+  --bg-primary: oklch(98.51% 0 107);
+  --bg-muted: oklch(56.74% .009 106.68 / 0.16);
+  --bg-accent: oklch(52.43% .2396 264.41);
+  --bg-special: oklch(58.99% .2523 294.88);
+  --fg-primary: oklch(10% 0 0);
+  --fg-secondary: oklch(30% .001 107);
+  --fg-tertiary: oklch(50% .001 107);
+  --fg-quaternary: oklch(69% .001 107);
+  --fg-accent: oklch(43.93% .2138 264.41);
+  --border-default: 1px;
+  --border-base: oklch(83.6% 0 107);
+  --border-primary: oklch(85.12% 0 107);
+  --border-accent: oklch(61.32% .2106 264.41);
+
+  /* Accent/Blue primary */
+  --accent-primary: oklch(52.43% .2396 264.41);
+  --accent-primary-foreground: oklch(97% 0.01 220);
+
+  /* Purple/Special (upgrade button) */
+  --special-primary: oklch(58.99% .2523 294.88);
+  --special-primary-foreground: oklch(97% 0.01 290);
+
+  /* Progress bar colors */
+  --progress-monthly: oklch(30% 0.15 264);
+  --progress-extra: oklch(52.43% .2396 264.41);
+
+  /* Sidebar */
+  --sidebar: oklch(95.49% 0 107);
+  --sidebar-foreground: oklch(10% 0 0);
+  --sidebar-primary: oklch(10% 0 0);
+  --sidebar-primary-foreground: oklch(98.51% 0 107);
+  --sidebar-accent: oklch(91% 0 107);
+  --sidebar-accent-foreground: oklch(10% 0 0);
+  --sidebar-border: oklch(85.12% 0 107);
+  --sidebar-ring: oklch(52.43% .2396 264.41);
 }
 
 @theme inline {
@@ -10,17 +71,79 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.6);
+  --radius-2xl: calc(var(--radius) * 2.4);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Lovable-specific button styles */
+.btn-ghost {
+  background: transparent;
+  color: var(--fg-primary);
+}
+.btn-ghost:hover {
+  background: oklch(0 0 0 / 0.04);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--border-primary);
+  color: var(--fg-primary);
+  box-shadow: 0 1px 2px -0.5px oklch(0 0 0 / 0.05);
+}
+.btn-outline:hover {
+  background: oklch(0 0 0 / 0.04);
+}
+
+/* Segmented progress bar */
+.credits-progress {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--bg-muted);
+  overflow: hidden;
+  display: flex;
+}
+.credits-progress-monthly {
+  background: oklch(30% 0.15 264);
+  border-radius: 999px 0 0 999px;
+}
+.credits-progress-extra {
+  background: oklch(52.43% .2396 264.41);
+  border-radius: 0 999px 999px 0;
 }
